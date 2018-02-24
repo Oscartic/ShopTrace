@@ -22,6 +22,7 @@ class ProductController extends Controller
     }
 
     public function show(Product $product) {
-        dd($product);
+        $category = $product->category()->with(['category']);
+        return view('product.show', compact('category','product'));
     }
 }

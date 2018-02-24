@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index() {
         $products = Product::latest()->paginate(20);
-        return view('home', compact('products'));
+        return view('product/index', compact('products'));
     }
 
     public function show(Product $product) {

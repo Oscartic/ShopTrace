@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('dimension')->nullable();
             $table->string('img')->nullable();
             $table->string('brand_name');
+            $table->smallInteger('warranty');
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->softDeletes();
@@ -38,6 +39,5 @@ class CreateProductsTable extends Migration
     {
         DB::statement('ALTER TABLE products DISABLE TRIGGER ALL');
         Schema::dropIfExists('products');
-        DB::statement('ALTER TABLE users ENABLE TRIGGER ALL');
     }
 }
